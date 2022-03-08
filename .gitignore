@@ -1,5 +1,7 @@
 /bin
 /obj
 /Properties
-appsetings.Development.json
+/.vscode
+appsettings.Development.json
 appsettings.json
+testfile.bdb
