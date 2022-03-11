@@ -35,7 +35,7 @@ namespace BarbarisDB {
             string response = "";
 
             if(filters.Length % 2 != 0) {
-                if(filters.Length <= 9) {
+                if(filters.Length <= 5) {
 
 
 
@@ -80,12 +80,60 @@ namespace BarbarisDB {
                                 }
                             }
                         }
-
                     }
 
 
 
                     if(filters.Length == 3) {
+                        string[] keyAndValue1 = filters[0].Split("=");
+                        string logicFilter = filters[1];
+                        string[] keyAndValue2 = filters[2].Split("=");
+
+                        using(StreamReader reader = new StreamReader(fileName + ".bdb")) {
+                            string? line;
+                            byte needableCoincidences = default;
+
+                            if(logicFilter == "and")
+                                needableCoincidences = 2;
+                            else if(logicFilter == "or")
+                                needableCoincidences = 1;
+                            else
+                                return "Unknown logic filter";
+
+                            while((line = reader.ReadLine()) != null) {
+                                string[] keysAndValues = line.Split(", ");
+                                byte lineChecks = 0;
+
+                                for (int i = 0; i < keysAndValues.Length; i++) {
+                                    string[] separated = keysAndValues[i].Split(":");
+
+                                    if(separated[0] == keyAndValue1[0]) {
+                                        if(separated[1] == keyAndValue1[1]) {
+                                            lineChecks++;
+                                        }
+                                    }
+                                            
+                                    if(separated[0] == keyAndValue2[0]) {
+                                        if(separated[1] == keyAndValue2[1]) {
+                                            lineChecks++;
+                                        }
+                                    }
+                                }
+
+                                if(lineChecks >= needableCoincidences) {
+                                    for (int j = 0; j < keysAndValues.Length; j++) {
+                                        response += keysAndValues[j].Split(":")[1] + ":";
+                                    }
+
+                                    response += ";";
+                                }  
+                            }
+                        }
+                    }
+
+
+
+                    if(filters.Length == 5) {
 
 
                     }

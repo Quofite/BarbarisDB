@@ -13,11 +13,11 @@ namespace BarbarisDB {
 
 
             // this commands below used to test
-            DBActions.SaveDataToDB("testfile", "id:4, name:gleb");
-            DBActions.SaveDataToDB("testfile", "id:34, surname:nikitin");
-            DBActions.SaveDataToDB("testfile", "name:gleb, surname:what");
+            //DBActions.SaveDataToDB("testfile", "id:4, name:gleb");
+            //DBActions.SaveDataToDB("testfile", "id:34, surname:nikitin");
+            //DBActions.SaveDataToDB("testfile", "name:gleb, surname:what");
 
-            Console.WriteLine(DBActions.GetDataFromDB("testfile", "name=gleb"));
+            Console.WriteLine(DBActions.GetDataFromDB("testfile", "name=gleb or id=4"));
         }
     }
 
