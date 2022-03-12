@@ -1,24 +1,53 @@
 namespace BarbarisDB {
     class Program {
         static void Main(string[] args) {
-            /*
+
             var builder = WebApplication.CreateBuilder(args);
             var app = builder.Build();
 
-            app.MapGet("/", () => "Hello World!");
+            app.Run(async (context) => {
+                var response = context.Response;
+                var request = context.Request;
 
-            app.Run();
-            */
+                if(request.Path == "/") {
+                    if(request.HasJsonContentType()) {
+                        var recieved = await request.ReadFromJsonAsync<Recieved>();
 
+                        if(recieved != null) {
+                            string method = recieved.method;
+                            string file = recieved.file;
+                            string data = recieved.data;
 
+                            if(method == "set") {
+                                DBActions.SaveDataToDB(file, data);
+                                Returned returned = new Returned("output", "Data is saved");
+                                await response.WriteAsJsonAsync(returned);
+                            } else if(method == "get") {
+                                Returned returned = new Returned("output", DBActions.GetDataFromDB(file, data));
+                                await response.WriteAsJsonAsync(returned);
+                            } else {
+                                Returned returned = new Returned("output", "Wrong request");
+                                await response.WriteAsJsonAsync(returned);
+                            }
+                        } else {
+                            Returned returned = new Returned("output", "Request is null");
+                            await response.WriteAsJsonAsync(returned);
+                        }
+                    } else {
+                        Returned returned = new Returned("output", "Request doesn't contain JSON");
+                        await response.WriteAsJsonAsync(returned);
+                    }
+                } else {
+                    Returned returned = new Returned("output", "Request should be on '/'");
+                    await response.WriteAsJsonAsync(returned);
+                }
+            });
 
-            // this commands below used to test
-            //DBActions.SaveDataToDB("testfile", "id:4, name:gleb");
-            //DBActions.SaveDataToDB("testfile", "id:34, surname:nikitin");
-            //DBActions.SaveDataToDB("testfile", "name:gleb, surname:what");
-
-            Console.WriteLine(DBActions.GetDataFromDB("testfile", "name=gleb or id=4"));
+            app.Run(); 
         }
     }
 
+    public record Recieved(string method, string file, string data);
+
+    public record Returned(string type, string output);
 }

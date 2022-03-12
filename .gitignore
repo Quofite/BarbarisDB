@@ -2,6 +2,9 @@
 /obj
 /Properties
 /.vscode
+/drivers
+/drivers/node_modules
+/package-lock.json
 appsettings.Development.json
 appsettings.json
 testfile.bdb

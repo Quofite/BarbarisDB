@@ -1,0 +1,5 @@
+{
+    "method": "get",
+    "file": "testfile",
+    "data": "name=gleb"
+}
