@@ -10,15 +10,15 @@ namespace BarbarisDB {
                 var request = context.Request;
 
                 if(request.Path == "/") {
-                    Console.WriteLine("1");
+
                     if(request.HasJsonContentType()) {
                         var recieved = await request.ReadFromJsonAsync<Recieved>();
-                        Console.WriteLine("2");
+
                         if(recieved != null) {
                             string method = recieved.method;
                             string file = recieved.file;
                             string data = recieved.data;
-                            Console.WriteLine("3");
+
                             if(method == "set") {
                                 DBActions.SaveDataToDB(file, data);
                                 Returned returned = new Returned("output", "Data is saved");
@@ -33,21 +33,17 @@ namespace BarbarisDB {
                         } else {
                             Returned returned = new Returned("output", "Request is null");
                             await response.WriteAsJsonAsync(returned);
-                            Console.WriteLine("4");
                         }
                     } else {
                         Returned returned = new Returned("output", "Request doesn't contain JSON");
                         await response.WriteAsJsonAsync(returned);
-                        Console.WriteLine("5");
                     }
                 } else {
                     Returned returned = new Returned("output", "Request should be on '/'");
                     await response.WriteAsJsonAsync(returned);
-                    Console.WriteLine("6");
                 }
             });
 
-            Console.WriteLine("7");
             app.Run(); 
         }
     }
