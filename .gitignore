@@ -4,6 +4,7 @@
 /.vscode
 /drivers/js/node_modules
 /drivers/js/package-lock.json
+/drivers/python/__pycache__
 appsettings.Development.json
 appsettings.json
 testfile.bdb

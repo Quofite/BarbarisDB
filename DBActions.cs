@@ -7,7 +7,7 @@ namespace BarbarisDB {
         /* 
             All data gonna be written in a such way: "key:data, key2:data2":
 
-            id:7, name:Gleb;
+            id:7, name:Gleb
             id:13, name:John, surname:Wilson
             surname:Tompson, role:admin
 
