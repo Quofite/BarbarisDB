@@ -1,21 +1,13 @@
 var request = require('request');
 
-
-
 module.exports.BdbRequest = function(options, Callback) {
-	var dbResponse;
-
   	request(options, function(error, response, body) {
-    	dbResponse = body.output;
-		Callback(dbResponse);
+		Callback(body.output);
 	});
 }
 
 module.exports.BdbExpressHttpResponse = function(options, Callback, httpResponse) {
-	var dbResponse;
-
 	request(options, function(error, response, body) {
-		dbResponse = body.output;
-		httpResponse.send(Callback(dbResponse));
+		httpResponse.send(Callback(body.output));
 	});
 }

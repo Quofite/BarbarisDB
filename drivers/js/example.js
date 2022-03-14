@@ -2,6 +2,8 @@ var bdb = require("./BarbarisDriver");
 var express = require("express");
 var app = express();
 
+// !!! npm install request !!!
+
 // ---- object with connection data
 
 var options = {

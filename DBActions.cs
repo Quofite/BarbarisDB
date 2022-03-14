@@ -112,7 +112,7 @@ namespace BarbarisDB {
                                 for (int i = 0; i < keysAndValues.Length; i++) {
                                     string[] separated = keysAndValues[i].Split(":");
 
-                                    // this system is simmilar to previous both but instead of writing line to response
+                                    // this system is similar to previous both but instead of writing line to response
                                     // it's increasing itterator
                                     if(separated[0] == keyAndValue1[0]) {
                                         if(separated[1] == keyAndValue1[1]) {
