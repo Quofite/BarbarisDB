@@ -9,14 +9,14 @@ namespace BarbarisDB {
 
             id:7, name:Gleb
             id:13, name:John, surname:Wilson
-            surname:Tompson, role:admin
+            surname:Thompson, role:admin
 
             This method should make data finding a little bit slow but easy-to-deal-with,
             because data won't be chained to each other by having same unneedable fields:
 
             id:7, name:Gleb, surname:null, role:null
             id:13, name:John, surname:Wilson, role:null
-            id:null, name:null, surname:Tompson, role:admin
+            id:null, name:null, surname:Thompson, role:admin
 
             The main thing is to use proper conditions of search("where id=...." for example).
 
