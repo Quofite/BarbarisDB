@@ -1,10 +1,9 @@
 # BARBARIS BD - database controlling system
 ## Containing:
-[Main Info](#info)
-[Node.js Driver](#node_driver)
-[Python Driver](#python_driver)
+[Main Info](#info)<br>
+[Node.js Driver](#node_driver)<br>
+[Python Driver](#python_driver)<br>
 [Request String](#request_string)
-
 
 ## Info<a name="info"></a>
 Barbaris DB is an open-sourse database controlling system made with C# and ASP.NET 6.<br>
