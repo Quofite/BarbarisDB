@@ -1,9 +1,9 @@
 # BARBARIS BD - database controlling system
 ## Containing:
-<a href="info">Main info</a><br>
-<a href="node_driver">Node.js Driver usage</a><br>
-<a href="python_driver">Python Driver usage<a/><br>
-<a href="request_string">Request String info</a>
+[Main Info](#info)
+[Node.js Driver](#node_driver)
+[Python Driver](#python_driver)
+[Request String](#request_string)
 
 
 ## Info<a name="info"></a>
