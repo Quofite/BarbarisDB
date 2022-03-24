@@ -13,8 +13,8 @@ It uses documents system instead of tables. <br>
 Data contains in a such way:<br>
 
 id:1;name:Gleb;surname:Nikitin;<br>
-name:Gleb;id:2<br>
-surname:Nikitin;name:Gleb
+name:Gleb;id:2;<br>
+surname:Nikitin;name:Gleb;
 
 It helps in memory managment because there are no unneedable fields:
 
