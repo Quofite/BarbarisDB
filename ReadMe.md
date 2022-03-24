@@ -1,6 +1,7 @@
 # BARBARIS BD - database controlling system
 ## Containing:
 [Main Info](#info)<br>
+[Installing](#installing)<br>
 [Node.js Driver](#node_driver)<br>
 [Python Driver](#python_driver)<br>
 [Request String](#request_string)
@@ -20,6 +21,21 @@ It helps in memory managment because there are no unneedable fields:
 id:1;name:Gleb;surname:Nikitin;<br>
 name:Gleb;id:2;<b>surname:null</b>;<br>
 surname:Nikitin;name:Gleb;<b>id:null</b>;
+
+## Installing<a name="installing"></a>
+#### Windows:
+1) Download <b>BarbarisDBWindows64.rar</b> from releases
+2) Unpack it
+3) Download ASP.NET Core Runtime from <a href="https://dotnet.microsoft.com/en-us/download/dotnet/6.0">here</a>
+4) Run BarbarisDB.exe on your server and check for host and port in starting message(it should be first pair)
+
+#### Debian-like systems (Debian, Ubuntu, Mint and so on):
+1) Download <b>BarbarisDBUbuntu64.tar.gz</b> from releases
+2) Unpack it
+3) Download ASP.NET Core runtime from <a href="https://docs.microsoft.com/ru-ru/dotnet/core/install/linux-debian">here for Debian</a> or <a href="https://docs.microsoft.com/ru-ru/dotnet/core/install/linux-ubuntu">here for Ubuntu</a>
+4) Open terminal at folder with BarbarisDB files and type<br>
+``` ./BarbarisDB ```
+5) Check for host and port in starting message(it should be first pair)
 
 ## Drivers
 At the moment DB has drivers for Node.js and Python, sooner C# and Java drivers will be added.
@@ -85,7 +101,7 @@ print(bdb.bdb_request("http://localhost:5232/", data))  # calling for bdb_reques
 ## Request String <a name="request_string"></a>
 To get or set data you are to use Request String, you could see it in drivers as special parameters in js object or python dictionary. Their spelings are depends on method:
 #### Get method:
-For get method you shuold write filters for data:
+For get method you should write filters for data:
 1) "*" - getting all
 2) key=value - returns every line from db that contains such pair of key and value
 3) key=value or key2=value2 - returns all lines that contains <b>ANY</b> of this 2 pairs
@@ -93,5 +109,5 @@ For get method you shuold write filters for data:
 
 You can use only 2 pairs, future updates will increase its ammout
 
-#### Set method
+#### Set method:
 For set method you write line to save in database in such way: <b>key:value;key2:value2;</b>
