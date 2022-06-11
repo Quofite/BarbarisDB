@@ -6,17 +6,32 @@ namespace BarbarisDB {
 
         /* 
             All data gonna be written in a such way: "key:data, key2:data2":
-
-            id:7, name:Gleb
-            id:13, name:John, surname:Wilson
-            surname:Thompson, role:admin
+            
+            ┌───┬───────────┬───────────────┐
+            │id │  name     │   surname     │
+            ├───┼───────────┼───────────────┤
+            │1  │  Gleb     │   Nikitin     │
+            ├───┼───────────┼───────────────┤
+            │2  │<b>null</b>│   Nikitin     │
+            ├───┼───────────┼───────────────┤
+            │3  │  Gleb     │<b>null</b>    │
+            └───┴─────────┬─┴───────────────┘
+                          │
+                          │
+                          │
+                          │
+                          │
+                          ▼
+            ┌──────────────────────────────────────────┐
+            │id = 1   name = Gleb   surname = Nikitin  │
+            ├──────────────────────────────────────────┤
+            │id = 2   surname = Nikitin                │
+            ├──────────────────────────────────────────┤
+            │id = 3   name = Gleb                      │
+            └──────────────────────────────────────────┘
 
             This method should make data finding a little bit slow but easy-to-deal-with,
-            because data won't be chained to each other by having same unneedable fields:
-
-            id:7, name:Gleb, surname:null, role:null
-            id:13, name:John, surname:Wilson, role:null
-            id:null, name:null, surname:Thompson, role:admin
+            because data won't be chained to each other by having same unneedable fields.
 
             The main thing is to use proper conditions of search("where id=...." for example).
 
