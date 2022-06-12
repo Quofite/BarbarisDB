@@ -2,6 +2,7 @@
 /obj
 /Properties
 /.vscode
+/.git
 /drivers/js/node_modules
 /drivers/js/package-lock.json
 /drivers/python/__pycache__
