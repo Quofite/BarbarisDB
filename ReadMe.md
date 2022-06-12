@@ -4,6 +4,7 @@
 [Installing](#installing)<br>
 [Node.js Driver](#node_driver)<br>
 [Python Driver](#python_driver)<br>
+[Java Driver](#java-driver)<br>
 [Request String](#request_string)
 
 ## Info<a name="info"></a>
@@ -38,7 +39,7 @@ surname:Nikitin;name:Gleb;<b>id:null</b>;
 5) Check for host and port in starting message(it should be first pair)
 
 ## Drivers
-At the moment DB has drivers for Node.js and Python, sooner C# and Java drivers will be added.
+At the moment DB has drivers for Node.js, Python and Java, sooner C#, PHP and Go drivers will be added.
 
 ### Node.js driver<a name="node_driver">:
 1) <b>npm install request</b> in your terminal
@@ -97,6 +98,13 @@ At the moment DB has drivers for Node.js and Python, sooner C# and Java drivers 
 ```
 print(bdb.bdb_request("http://localhost:5232/", data))  # calling for bdb_request function form BarbarisDriver and putting db's url and dict as params
 ```
+
+### Java driver<a name="java_driver"></a>
+
+1) Install <a href="https://github.com/google/gson#download">GSON</a> to your project.
+2) Put 3 Java files somewhere into your project's package.
+3) Call request by ``` BarbarisDriver.exec("host", "method", "file", "data"); ```<br>
+   Make attention that function returns String object and if something wrong it will tell you.
 
 ## Request String <a name="request_string"></a>
 To get or set data you are to use Request String, you could see it in drivers as special parameters in js object or python dictionary. Their spelings are depends on method:
