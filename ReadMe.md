@@ -13,15 +13,15 @@ Barbaris DB is an open-sourse database controlling system made with C# and ASP.N
 It uses documents system instead of tables. <br>
 Data contains in a such way:<br>
 
-id:1;name:Gleb;surname:Nikitin;<br>
-name:Gleb;id:2<br>
-surname:Nikitin;name:Gleb
+id:1, name:Gleb, surname:Nikitin;<br>
+name:Gleb, id:2;<br>
+surname:Nikitin, name:Gleb;
 
 It helps in memory managment because there are no unneedable fields:
 
-id:1;name:Gleb;surname:Nikitin;<br>
-name:Gleb;id:2;<b>surname:null</b>;<br>
-surname:Nikitin;name:Gleb;<b>id:null</b>;
+id:1, name:Gleb, surname:Nikitin;<br>
+name:Gleb, id:2, <b>surname:null</b>;<br>
+surname:Nikitin, name:Gleb, <b>id:null</b>;
 
 ## Installing<a name="installing"></a>
 #### Windows:
@@ -118,4 +118,4 @@ For get method you should write filters for data:
 You can use only 2 pairs, future updates will increase its ammout
 
 #### Set method:
-For set method you write line to save in database in such way: <b>key:value;key2:value2;</b>
+For set method you write line to save in database in such way: <b>key:value, key2:value2;</b>
