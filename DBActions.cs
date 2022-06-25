@@ -161,9 +161,18 @@ namespace BarbarisDB {
             }
 
             // getting rid of odd statements in response
-            response = response.Replace("::;", ";");
-            response = response.Replace(":;", ";");
-            response = response.Replace(";;", ";");
+            while(response.IndexOf("::;") != -1) {
+                response = response.Replace("::;", ";");
+            }
+
+            while(response.IndexOf(":;") != -1) {
+                response = response.Replace(":;", ";");
+            }
+            
+            while(response.IndexOf(";;") != -1) {
+                response = response.Replace(";;", ";");
+            }
+
             return response;
         }
     }

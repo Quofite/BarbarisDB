@@ -12,15 +12,15 @@ Barbaris DB is an open-sourse database controlling system made with C# and ASP.N
 It uses documents system instead of tables. <br>
 Data contains in a such way:<br>
 
-id:1;name:Gleb;surname:Nikitin;<br>
+id:1;name:Gleb;surname:Nikitin<br>
 name:Gleb;id:2<br>
 surname:Nikitin;name:Gleb
 
 It helps in memory managment because there are no unneedable fields:
 
-id:1;name:Gleb;surname:Nikitin;<br>
-name:Gleb;id:2;<b>surname:null</b>;<br>
-surname:Nikitin;name:Gleb;<b>id:null</b>;
+id:1;name:Gleb;surname:Nikitin<br>
+name:Gleb;id:2;<b>surname:null</b><br>
+surname:Nikitin;name:Gleb;<b>id:null</b>
 
 ## Installing<a name="installing"></a>
 #### Windows:
@@ -50,12 +50,12 @@ At the moment DB has drivers for Python and Java, sooner C#, PHP and Go drivers 
     data = {
         "method": "get",                # method get/set (diferences are obvious)
         "file": "testfile",             # name of database file
-        "data": "name=gleb and id=4"    # request string / data string (depends on method, for more info see special chapter)
+        "data": "name=Gleb and id=4"    # request string / data string (depends on method, for more info see special chapter)
     }
 ```
 5) Using data (print is for example, pay attention that function is returning data) 
 ```
-print(bdb.bdb_request("http://localhost:5232/", data))  # calling for bdb_request function form BarbarisDriver and putting db's url and dict as params
+print(bdb.bdb_request("http://localhost:5000/", data))  # calling for bdb_request function form BarbarisDriver and putting db's url and dict as params
 ```
 
 ### Java driver<a name="java_driver"></a>
@@ -77,4 +77,4 @@ For get method you should write filters for data:
 You can use only 2 pairs, future updates will increase its ammout
 
 #### Set method:
-For set method you write line to save in database in such way: <b>key:value;key2:value2;</b>
+For set method you write line to save in database in such way: <b>key:value, key2:value2</b>

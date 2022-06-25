@@ -59,14 +59,7 @@ public class BarbarisDriver {
 
     private static boolean dataTest(String host, String method, String data) {
         if(host.indexOf("http://") == 0 || host.indexOf("https://") == 0) {
-            if(method.equals("set")) {
-                if(data.endsWith(";")) {
-                    return true;
-                } else {
-                    System.out.println("Data error: Data string does not end with semicolon (;).");
-                    return false;
-                }
-            } else if(method.equals("get")) {
+            if(method.equals("set") || method.equals("get")) {
                 return true;
             } else {
                 System.out.println("Method error: Method is not \"get\" or \"set\", try to check the case.");

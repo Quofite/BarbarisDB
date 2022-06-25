@@ -13,17 +13,13 @@ def bdb_request(url, data):
             return "There is an error in your request. Check the log in terminal."
         else:
             return response.json()["output"]
+    else:
+        return "There is an error in your request. Check the log in terminal."
 
 
 def data_test(url, data):
     if url.startswith("http://") or url.startswith("https://"):
-        if data.method == "set":
-            if data.data.endswith(";"):
-                return True
-            else:
-                print("Data error: Data string does not end with semicolon.")
-                return False
-        elif data.method == "get":
+        if data["method"] == "set" or data["method"] == "get":
             return True
         else:
             print("Method error: Method is not \"get\" or \"set\", try to check the case.")
