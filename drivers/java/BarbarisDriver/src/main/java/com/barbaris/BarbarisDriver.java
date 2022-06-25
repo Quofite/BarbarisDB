@@ -43,7 +43,15 @@ public class BarbarisDriver {
 
             in.close();
 
-            return model.output;
+            if(model.type.equals("error")) {
+                System.out.println("Error: " + model.output);
+                return "There is an error in your request. Check the log in terminal.";
+            } else if (model.output.startsWith("Error:")) {
+                System.out.println(model.output);
+                return "There is an error in your request. Check the log in terminal.";
+            } else {
+                return model.output;
+            }
         } else {
             return "There is an error in your request. Check the log in terminal.";
         }
@@ -55,13 +63,13 @@ public class BarbarisDriver {
                 if(data.endsWith(";")) {
                     return true;
                 } else {
-                    System.out.println("Data error: data string does not end with semicolon (;).");
+                    System.out.println("Data error: Data string does not end with semicolon (;).");
                     return false;
                 }
             } else if(method.equals("get")) {
                 return true;
             } else {
-                System.out.println("Method error: method is not \"get\" or \"set\", try to check the case.");
+                System.out.println("Method error: Method is not \"get\" or \"set\", try to check the case.");
                 return false;
             }
         } else {

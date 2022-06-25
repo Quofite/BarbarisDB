@@ -103,9 +103,9 @@ namespace BarbarisDB {
 
                     if(filters.Length == 3) {
                         // spliting all filters
-                        string[] keyAndValue1 = filters[0].Split("=");  // key=value
+                        string[] keyAndValue1 = filters[0].Split("=");  // key=value 1
                         string logicFilter = filters[1];                // and/or
-                        string[] keyAndValue2 = filters[2].Split("=");  // key=value
+                        string[] keyAndValue2 = filters[2].Split("=");  // key=value 2
 
                         using(StreamReader reader = new StreamReader(fileName + ".bdb")) {
                             string? line;
@@ -118,7 +118,7 @@ namespace BarbarisDB {
                             else if(logicFilter == "or")
                                 needableCoincidences = 1;
                             else
-                                return "Unknown logic filter";
+                                return $"Error: Unknown logic filter. Use 'and' or 'or' instead of {logicFilter}.";
 
                             while((line = reader.ReadLine()) != null) {
                                 string[] keysAndValues = line.Split(", ");
@@ -154,10 +154,10 @@ namespace BarbarisDB {
                         }
                     }
                 } else {
-                    return "Too many parameters";
+                    return $"Error: Too many parameters. You can use only 2 pairs of statements separated by logic filter when you used {filters.Length}.";
                 }
             } else {
-                return "Wrong statement";
+                return "Error: Wrong statement";
             }
 
             // getting rid of odd statements in response

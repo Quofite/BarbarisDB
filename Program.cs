@@ -21,25 +21,25 @@ namespace BarbarisDB {
 
                             if(method == "set") {
                                 DBActions.SaveDataToDB(file, data);
-                                Returned returned = new Returned("output", "Data is saved");
+                                Returned returned = new Returned("output", "Data is saved.");
                                 await response.WriteAsJsonAsync(returned);
                             } else if(method == "get") {
                                 Returned returned = new Returned("output", DBActions.GetDataFromDB(file, data));
                                 await response.WriteAsJsonAsync(returned);
                             } else {
-                                Returned returned = new Returned("output", "Wrong request");
+                                Returned returned = new Returned("error", $"Wrong request method. It must be 'set' or 'get' but you used {method}.");
                                 await response.WriteAsJsonAsync(returned);
                             }
                         } else {
-                            Returned returned = new Returned("output", "Request is null");
+                            Returned returned = new Returned("error", "Request is null.");
                             await response.WriteAsJsonAsync(returned);
                         }
                     } else {
-                        Returned returned = new Returned("output", "Request doesn't contain JSON");
+                        Returned returned = new Returned("error", "Request doesn't contain JSON.");
                         await response.WriteAsJsonAsync(returned);
                     }
                 } else {
-                    Returned returned = new Returned("output", "Request should be on '/'");
+                    Returned returned = new Returned("error", "Request should be on '/'.");
                     await response.WriteAsJsonAsync(returned);
                 }
             });

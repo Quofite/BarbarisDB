@@ -3,14 +3,13 @@
 /Properties
 /.vscode
 /.git
-/drivers/js/node_modules
-/drivers/js/package-lock.json
 /drivers/python/__pycache__
 /drivers/java/.idea
 /drivers/java/BarbarisDriver/.idea
 /drivers/java/BarbarisDriver/target/generated-sources
 /drivers/java/BarbarisDriver/src/test
 /drivers/java/BarbarisDriver/src/main/resources
+/drivers/sharp
 appsettings.Development.json
 appsettings.json
 testfile.bdb
